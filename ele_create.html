@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button name="addDom">Add DOM element</button>
+        <script>
+            document.querySelector(document).ready(function () {
+                document
+                    .querySelector("button[name='addDom']")
+                    .click(function () {
+                        var domElement = document.querySelector(
+                            '<div class="module_holder"><div class="module_item"><img src="images/i-5.png" alt="Sweep Stakes" /></div></div>'
+                        );
+                        document.querySelector(this).after(domElement);
+                    });
+            });
+        </script>
+        <style>
+            .module_holder {
+                background-color: #09c;
+                width: 200px;
+                height: 100px;
+                padding: 4px;
+            }
+
+            .module_item {
+                background-color: #069;
+                width: 100px;
+                padding: 2px;
+                height: 5px;
+            }
+        </style>
+    </body>
+</html>

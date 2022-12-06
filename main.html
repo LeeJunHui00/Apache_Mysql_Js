@@ -1,0 +1,359 @@
+<?php
+    include("phpPack/boardSet.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <title>동의대학교 상황알림판</title>
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+
+        <!-- 채팅 스크립트 -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="static/js/index.js"></script>
+        <link rel="stylesheet" href="/static/css/index.css" />
+
+        <!-- Favicons -->
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100;400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Vendor CSS Files -->
+        <link
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="assets/vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+        />
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+        <!-- Template Main CSS Files -->
+        <link href="assets/css/variables.css" rel="stylesheet" />
+        <link href="assets/css/main.css" rel="stylesheet" />
+
+        <!-- =======================================================
+  * Template Name: ZenBlog - v1.2.1
+  * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
+  * Author: BootstrapMade.com
+  * License: https:///bootstrapmade.com/license/
+  ======================================================== -->
+    </head>
+
+    <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="header d-flex align-items-center fixed-top">
+            <div
+                class="container-fluid container-xl d-flex align-items-center justify-content-between"
+            >
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <!-- Uncomment the line below if you also wish to use an image logo -->
+                    <!-- <img src="assets/img/logo.png" alt=""> -->
+                    <h1>동의대학교 현황판</h1>
+                </a>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a
+                                href="http://sugang.deu.ac.kr:8080/DEUSugang_Login.aspx"
+                                >수강신청</a
+                            >
+                        </li>
+                        <li>
+                            <a href="https://www.deu.ac.kr/www/intro"
+                                >학교 홈페이지</a
+                            >
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"
+                                ><span>아무거나</span>
+                                <i
+                                    class="bi bi-chevron-down dropdown-indicator"
+                                ></i
+                            ></a>
+                            <ul>
+                                <li>
+                                    <a href="search-result.html">아무거나1</a>
+                                </li>
+                                <li><a href="#">아무거나2</a></li>
+                                <li class="dropdown">
+                                    <a href="#"
+                                        ><span>아무거나 리스트</span>
+                                        <i
+                                            class="bi bi-chevron-down dropdown-indicator"
+                                        ></i
+                                    ></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Deep Drop Down 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Deep Drop Down 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Deep Drop Down 3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Deep Drop Down 4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Deep Drop Down 5</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Drop Down 2</a></li>
+                                <li><a href="#">Drop Down 3</a></li>
+                                <li><a href="#">Drop Down 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- .navbar -->
+
+                <div class="position-relative">
+                    <a
+                        href="https://www.facebook.com/DongEuiUniversity/"
+                        class="mx-2"
+                        ><span class="bi-facebook"></span
+                    ></a>
+                    <a href="https://www.youtube.com/user/DeuPr" class="mx-2"
+                        ><span class="bi-youtube"></span
+                    ></a>
+                    <a href="https://www.instagram.com/deu.ac.kr/" class="mx-2"
+                        ><span class="bi-instagram"></span
+                    ></a>
+
+                    <a href="#" class="mx-2 js-search-open"
+                        ><span class="bi-search"></span
+                    ></a>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+
+                    <!-- ======= Search Form ======= -->
+                    <div class="search-form-wrap js-search-form-wrap">
+                        <form action="search-result.html" class="search-form">
+                            <span class="icon bi-search"></span>
+                            <input
+                                type="text"
+                                placeholder="Search"
+                                class="form-control"
+                            />
+                            <button class="btn js-search-close">
+                                <span class="bi-x"></span>
+                            </button>
+                        </form>
+                    </div>
+                    <!-- End Search Form -->
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <main id="main">
+            <div class="main-container">
+                <div class="left-container container">
+                    <div class="menu-box block">
+                        <?php
+                            $dap_class->print_dap(); ?>
+                    </div>
+                    <div class="menu-box block">
+                        <?php
+                            $deu_3rd_class->print(); ?>
+                    </div>
+                    <div class="menu-box block">
+                        <?php
+                            $job_class->print(); ?>
+                    </div>
+                </div>
+                <div class="right-container container">
+                    <div class="menu-box block">
+                        <?php
+                            $lang_class->print(); ?>
+                    </div>
+                    <div class="menu-box block menu-box-list">
+                        <label for="touch">
+                            <i class="bi bi-plus-square"></i>
+                        </label>
+                        <input type="checkbox" id="touch" />
+                        <ul class="slide">
+                            <li>
+                                <a onclick="functpe()" id="nonsub_act_test"
+                                    >비교과 프로그램</a
+                                >
+                            </li>
+                            <li><a href="#">대외 협력처</a></li>
+                            <li><a href="#">외부 기관 공고</a></li>
+                            <li><a href="#">채용 공고</a></li>
+                            <li><a href="#">국제 언어 교육원</a></li>
+                        </ul>
+                        <div id="lang_class" style="display: none">
+                            <?php
+                            $lang_class->print(); ?>
+                        </div>
+                    </div>
+                </div>
+                <div id="chat-box" class="chat-box container">
+                    <div id="chat"></div>
+                    <div>
+                        <input
+                            type="text"
+                            id="test"
+                            placeholder="메시지를 입력해주세요.."
+                        />
+                        <button onclick="send()">전송</button>
+                    </div>
+                </div>
+            </div>
+            <div id="box"></div>
+        </main>
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+        <!-- <script src="app.js"></script> -->
+        <!-- 채팅 js -->
+        <script>
+            chat = document.getElementById("chat-box");
+            chat.addEventListener("keydown", (event) => {
+                console.log(event.keyCode);
+                if (event.keyCode === 13) {
+                    send();
+                    return;
+                }
+            });
+        </script>
+
+        <!-- 버튼 클릭하면 요소 추가 -->
+        <div class="form-check form-check-inline">
+            <input
+                class="form-check-input big-checkbox"
+                type="checkbox"
+                id="nonsub_act"
+                value="tpe"
+                onchange="functpe()"
+            />
+            <label class="form-check-label" for="tpe">비교과 공지</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input
+                class="form-check-input big-checkbox"
+                type="checkbox"
+                id="outside"
+                value="tpe"
+                onchange="functpe()"
+            />
+            <label class="form-check-label" for="tpe">대외 협력처</label>
+        </div>
+
+        <div id="doing" style="display: none">
+            <div class="menu-box block">
+                <h2 class="titular">비교과 공지</h2>
+                <ul class="menu-box-menu">
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="doing_test2" style="display: none">
+            <div class="menu-box block">
+                <h2 class="titular">대외협력처</h2>
+                <ul class="menu-box-menu">
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#"
+                            ><div class="menu-box-value">아무거나</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            function functpe() {
+                var nonsub_act = document.getElementById("nonsub_act_test");
+                var outside = document.getElementById("outside");
+                console.log("함수실행합니다");
+
+                if (nonsub_act) {
+                    document.getElementById("lang_class").style.display =
+                        "block";
+                } else {
+                    document.getElementById("lang_class").style.display =
+                        "none";
+                }
+
+                if (outside.checked == true) {
+                    document.getElementById("doing_test2").style.display =
+                        "block";
+                } else {
+                    document.getElementById("doing_test2").style.display =
+                        "none";
+                }
+            }
+        </script>
+    </body>
+</html>
