@@ -10,7 +10,7 @@
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
-        /> 
+        />
         <link rel="stylesheet" type="text/css" href="/assets/css/signin.css" />
 
         <script
@@ -26,7 +26,6 @@
     </head>
 
     <body class="my-login-page">
-        
         <section class="h-100">
             <div class="container h-100">
                 <div class="row justify-content-md-center h-100">
@@ -38,10 +37,11 @@
                             <div class="card-body">
                                 <h4 class="card-title">로그인</h4>
                                 <form
-                                    action="login.php"
+                                    action="/phpPack/login.php"
                                     method="POST"
                                     class="my-login-validation"
                                     novalidate=""
+                                    minlength="5"
                                 >
                                     <div class="form-group">
                                         <label for="email">아이디</label>
@@ -50,6 +50,7 @@
                                             type="email"
                                             class="form-control"
                                             name="i_Email"
+                                            minlength="5"
                                             value=""
                                             required
                                             autofocus
@@ -74,6 +75,7 @@
                                             type="password"
                                             class="form-control"
                                             name="i_Pass"
+                                            minlength="5"
                                             required
                                             data-eye
                                         />

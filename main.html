@@ -1,6 +1,10 @@
 <?php
+    //session_name('테스트세션');
+    //session_start(); //세션 시작 
     include("phpPack/boardSet.php");
+    include("phpPack/count.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,6 +25,7 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="static/js/index.js"></script>
         <link rel="stylesheet" href="/static/css/index.css" />
+        <script src="deco.html"></script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,6 +85,7 @@
                     <ul>
                         <li>
                             <a
+                                target="_blank"
                                 href="https://www.deu.ac.kr/www/intro"
                                 style="color: white"
                                 >학교 홈페이지</a
@@ -87,59 +93,82 @@
                         </li>
                         <li>
                             <a
+                                target="_blank"
                                 href="http://sugang.deu.ac.kr:8080/DEUSugang_Login.aspx"
                                 style="color: white"
                                 >수강신청</a
                             >
                         </li>
-
-                        <li>
-                            <a
-                                href="https://dap.deu.ac.kr/"
-                                style="color: white"
-                                >Dap 시스템</a
-                            >
-                        </li>
                         <li class="dropdown">
                             <a href="#" style="color: white"
-                                ><span>아무거나</span>
+                                ><span>학교 통합 바로가기</span>
                                 <i
                                     class="bi bi-chevron-down dropdown-indicator"
                                 ></i
                             ></a>
                             <ul>
-                                <li>
-                                    <a href="search-result.html">아무거나1</a>
-                                </li>
-                                <li><a href="#">아무거나2</a></li>
                                 <li class="dropdown">
                                     <a href="#"
-                                        ><span>아무거나 리스트</span>
+                                        ><span>학교 공지</span>
                                         <i
                                             class="bi bi-chevron-down dropdown-indicator"
                                         ></i
                                     ></a>
                                     <ul>
                                         <li>
-                                            <a href="#">Deep Drop Down 1</a>
+                                            <a
+                                                href="https://www.deu.ac.kr/www/board/13"
+                                                target="_blank"
+                                                >외부기관 공고</a
+                                            >
                                         </li>
                                         <li>
-                                            <a href="#">Deep Drop Down 2</a>
+                                            <a
+                                                href="https://www.deu.ac.kr/www/board/96"
+                                                target="_blank"
+                                                >채용 공고</a
+                                            >
                                         </li>
                                         <li>
-                                            <a href="#">Deep Drop Down 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Deep Drop Down 4</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Deep Drop Down 5</a>
+                                            <a
+                                                href="https://www.deu.ac.kr/www/board/5"
+                                                target="_blank"
+                                                >장학 공지</a
+                                            >
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
-                                <li><a href="#">Drop Down 4</a></li>
+                                <li class="dropdown">
+                                    <a href="#"
+                                        ><span>부속 기관</span>
+                                        <i
+                                            class="bi bi-chevron-down dropdown-indicator"
+                                        ></i
+                                    ></a>
+                                    <ul>
+                                        <li>
+                                            <a
+                                                href="https://exchange.deu.ac.kr/exchange/841/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGZXhjaGFuZ2UlMkYyNzAlMkZhcnRjbExpc3QuZG8lM0Y%3D"
+                                                target="_blank"
+                                                >대외 협력처</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                target="_blank"
+                                                href="https://www.deu.ac.kr/www/board/24"
+                                                >국제언어교육원</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                target="_blank"
+                                                href="https://www.deu.ac.kr/www/board/29"
+                                                >박물관</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -147,56 +176,190 @@
                 <!-- .navbar -->
 
                 <div class="position-relative">
-                    <a
-                        href="https://www.facebook.com/DongEuiUniversity/"
-                        class="mx-2"
-                        ><span class="bi-facebook"></span
-                    ></a>
-                    <a href="https://www.youtube.com/user/DeuPr" class="mx-2"
-                        ><span class="bi-youtube"></span
-                    ></a>
-                    <a href="https://www.instagram.com/deu.ac.kr/" class="mx-2"
-                        ><span class="bi-instagram"></span
-                    ></a>
-                    <a href="#" class="mx-2 js-search-open"
-                        ><span class="bi-search"></span
-                    ></a>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
+                    <div class="social-icon">
+                        <a
+                            target="_blank"
+                            href="https://www.facebook.com/DongEuiUniversity/"
+                            class="mx-2"
+                            ><span class="bi-facebook fs-3"></span
+                        ></a>
+                        <a
+                            target="_blank"
+                            href="https://www.youtube.com/user/DeuPr"
+                            class="mx-2"
+                            ><span class="bi-youtube fs-3"></span
+                        ></a>
+                        <a
+                            target="_blank"
+                            href="https://www.instagram.com/deu.ac.kr/"
+                            class="mx-2"
+                            ><span class="bi-instagram fs-3"></span
+                        ></a>
+                    </div>
 
-                    <!-- ======= Search Form ======= -->
-                    <div class="search-form-wrap js-search-form-wrap">
-                        <form action="search-result.html" class="search-form">
-                            <span class="icon bi-search"></span>
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                class="form-control"
-                            />
-                            <button class="btn js-search-close">
-                                <span class="bi-x"></span>
-                            </button>
+                    <!-- <i class="bi bi-list mobile-nav-toggle"></i> -->
+                    <div class="div-user-info">
+                        <form
+                            class="user-info"
+                            action="login.php"
+                            method="post"
+                        >
+                            <?php
+                            echo "안녕하세요! ".$_SESSION['mail']."\n";
+                            //echo "nickname 은 ".$_SESSION['nickname']."입니다.\n";
+                        ?>
                         </form>
                     </div>
-                    <!-- End Search Form -->
+                    <div class="class-btn-logout">
+                        <button
+                            type="button"
+                            class="btn btn-primary button_logout"
+                            onclick="location.href='phpPack/logout.php'"
+                        >
+                            로그아웃
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
         <!-- End Header -->
         <main id="main">
+            <form class="visiter" action="count.php" method="post">
+                <?php
+                    echo "오늘 방문객 수 : ". $count." , ";
+                    echo "\n";
+                    echo "총 방문객 수 : ".$total;
+                ?>
+            </form>
             <div class="main-container">
                 <div class="left-container container">
                     <?php echo flexible_box("1", "_child"); ?>
                     <?php echo flexible_box("2", "_child"); ?>
                 </div>
-                <div class="right-container container">
+                <div class="middle-container container">
                     <?php echo flexible_box("3", "_child"); ?>
                     <?php echo flexible_box("4", "_child"); ?>
+                </div>
+                <div class="right-container container">
+                    <?php echo flexible_box("5", "_child"); ?>
+                    <?php echo flexible_box("6", "_child"); ?>
                 </div>
             </div>
         </main>
 
         <!-- 채팅 js -->
-        <script>
+        <link rel="stylesheet" href="deco.css">
+<div class="sticky-menu-container">
+  <div class="inner-menu closed">
+    <div class="outer-button">
+      <div class="icon-container">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve" class="close-icon">
+  <path id="XMLID_732_" d="M70.7,64.3c1.8,1.8,1.8,4.6,0,6.4c-0.9,0.9-2,1.3-3.2,1.3c-1.2,0-2.3-0.4-3.2-1.3L46,52.4L27.7,70.7
+    c-0.9,0.9-2,1.3-3.2,1.3s-2.3-0.4-3.2-1.3c-1.8-1.8-1.8-4.6,0-6.4L39.6,46L21.3,27.7c-1.8-1.8-1.8-4.6,0-6.4c1.8-1.8,4.6-1.8,6.4,0
+    L46,39.6l18.3-18.3c1.8-1.8,4.6-1.8,6.4,0c1.8,1.8,1.8,4.6,0,6.4L52.4,46L70.7,64.3z"/>
+  </svg>
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve" class="arrow-icon">
+  <path id="XMLID_507_" d="M49.9,88c-0.2,0-0.4,0-0.6-0.1c-1.8-0.3-3.2-1.7-3.3-3.5l-3.5-34.8L7.6,46.1c-1.8-0.2-3.3-1.6-3.5-3.3
+    c-0.3-1.8,0.7-3.5,2.3-4.3l76-34.1c1.5-0.7,3.3-0.4,4.5,0.8c1.2,1.2,1.5,3,0.8,4.5l-34.1,76C52.9,87.1,51.4,88,49.9,88z M23.3,39.7
+    L46.4,42c1.9,0.2,3.4,1.7,3.6,3.6l2.4,23.1L76,16L23.3,39.7z"/>
+  </svg>
+    </div>
+    </div>
+      <div style="width:90px; height:100px;"></div>
+      <div class="menu-item"style="width:390px; height:590px;">
+        <!--<iframe src="test.html" style="width:460px; min-height:400px;" frameborder="1"></iframe>-->
+        <!DOCTYPE html>
+<link rel="stylesheet" href="deco.css">
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websocket Chatting</title>
+
+    <script>
+      var name = ''
+      const ws = new WebSocket("ws://113.198.230.37:5500")
+      // 메세지 수신
+
+      function receiveMessage() {
+        var test = event.data.split(':')
+        const div = document.createElement("div");
+        if(name == test[0])
+        {
+          const dom = `
+          <div class="chat ch2">
+          <div class="icon">${test[0]}</i></div>
+          <div class="textbox">${test[1]}</div>
+      </div>
+        `;
+        div.innerHTML = dom;
+        const chatLog = document.getElementById("chat-log")
+        chatLog.appendChild(div)
+        chatLog.scrollTop = chatLog.scrollHeight;
+        }
+        else{
+          const dom = `
+          <div class="chat ch1">
+            <div class="icon">${test[0]}</i></div>
+          <div class="textbox">${test[1]}</div>
+      </div>
+        `;
+        div.innerHTML = dom;
+        const chatLog = document.getElementById("chat-log")
+        chatLog.appendChild(div)
+        chatLog.scrollTop = chatLog.scrollHeight;
+        }
+      }
+      ws.onmessage = receiveMessage
+      // 메세지 전송
+      function sendMessage() {
+        const nickname = document.getElementById("nickname").value
+        name = nickname
+        const message = document.getElementById("message").value
+        const fullMessage = `${nickname}: ${message}`
+        document.getElementById("message").value = ''
+        ws.send(fullMessage)
+      }
+      // 메세지 전송
+      function sendMe(e) {
+        if(e.keyCode == 13)
+        {
+            const nickname = document.getElementById("nickname").value
+            name = nickname
+            const message = document.getElementById("message").value
+            const fullMessage = `${nickname}: ${message}`
+            document.getElementById("message").value = ''
+            ws.send(fullMessage)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chat-log"style="overflow:auto; width:390px; height:415px;"></div>
+  </body>
+</html>
+<div>
+  <input
+    type="text"
+    id="nickname"
+    placeholder="닉네임"
+    style="width: 50px"
+  />
+  <input
+    type="text"
+    id="message"
+    placeholder="메세지"
+    style="width: 340px; height: 30px"
+    onkeypress="sendMe(event)"
+  />
+  <button onclick="sendMessage()"style="width: 40px; height: 30px" id="sender">전송</button>
+</div>
+</div>
+</div>
+<script src="deco.js"></script>
+
+        <!--<script>
+
             chat = document.getElementById("chat-box");
             chat.addEventListener("keydown", (event) => {
                 console.log(event.keyCode);
@@ -205,7 +368,7 @@
                     return;
                 }
             });
-        </script>
+        </script>-->
         <script>
             $(function () {
                 function slideMenu(container_id) {
@@ -252,16 +415,18 @@
             }); // jQuery load
         </script>
 
-        <script type="text/javascript" src="assets/js/main.js" defer></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
         <script
             type="text/javascript"
             src="/assets/js/main_dropdown.js"
-            defer
         ></script>
         <script
             type="text/javascript"
             src="/assets/js/main_dropdown_jquery.js"
-            defer
+        ></script>
+        <script
+            type="text/javascript"
+            src="/assets/js/cookieManager.js"
         ></script>
     </body>
 </html>
