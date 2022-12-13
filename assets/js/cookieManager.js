@@ -12,6 +12,8 @@ function getCookie(name) {
   document.getElementById('lang_class2').click();
   document.getElementById('lang_class3').click();
   document.getElementById('lang_class4').click();
+  document.getElementById('lang_class5').click();
+  document.getElementById('lang_class6').click();
 
   //쿠키에 게시판 값이 저장되어 있다면 그 게시판을 불러온다.
   if(undefined!=getCookie("b1")){
@@ -25,4 +27,10 @@ function getCookie(name) {
   }
   if(undefined!=getCookie("b4")){
     document.getElementById(getCookie("b4")).click();
+  }
+  if(undefined!=getCookie("b5")){
+    document.getElementById(getCookie("b5")).click();
+  }
+  if(undefined!=getCookie("b6")){
+    document.getElementById(getCookie("b6")).click();
   }

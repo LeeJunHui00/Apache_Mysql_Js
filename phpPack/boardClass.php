@@ -59,7 +59,7 @@
                     while( $main_row = $this->get_row() ){
                         $this->str_li = $this->str_li.
                         '<li>
-                            <a class="menu-box-tab" href="'.$main_row['link'].'">
+                            <a target="_blank" class="menu-box-tab" href="'.$main_row['link'].'">
                             <div class="menu-box-value">'.$main_row['title'].'</div>
                             </a>
                         </li>';
@@ -69,7 +69,7 @@
                     while( $main_row = $this->get_row() ){
                     $this->str_li = $this->str_li.
                         '<li>
-                            <a class="menu-box-tab" href="'.$main_row['link'].'">
+                            <a target="_blank" class="menu-box-tab" href="'.$main_row['link'].'">
                                 <div class="menu-box-value">'.$main_row['title'].'</div>
                             </a>
                         </li>';

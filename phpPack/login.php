@@ -24,8 +24,8 @@
       header("Location:../main.html");
     }
     else{
-      echo "<script>alert(\"존재하지 않는 아이디/비밀번호 입니다.\");</script>";
-      //require 'index.html';   //일치하는 값이 없다면 로그인 재시도
+      echo "<script>alert('존재하지 않는 아이디/비밀번호 입니다.');</script>";
+      require '../index.html';   //일치하는 값이 없다면 로그인 재시도
       header("Location:../index.html");
     }
 }

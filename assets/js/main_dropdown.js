@@ -4,9 +4,7 @@ function functpe(parent) {
     const deu_3rd_class = document.getElementById(`deu_3rd_class${parent}`);
     const job_class = document.getElementById(`job_class${parent}`);
 
-    const scholarship_class = document.getElementById(
-        `scholarship_class${parent}`
-    );
+    const scholarship_class = document.getElementById(`scholarship_class${parent}`);
 
     const lang_class = document.getElementById(`lang_class${parent}`);
     const dap_edu_class = document.getElementById(`dap_edu_class${parent}`);
@@ -15,11 +13,11 @@ function functpe(parent) {
     const dap_haksa_class = document.getElementById(`dap_haksa_class${parent}`); // 중간 테스트
 
     const dap_dorm_class = document.getElementById(`dap_dorm_class${parent}`);
-    const dap_scholarship_class = document.getElementById(
-        `dap_scholarship_class${parent}`
-    );
+    const dap_scholarship_class = document.getElementById(`dap_scholarship_class${parent}`);
 
-    //document.cookie = "b1=classname; path=/; expires=Tue, 19 Jan 2023 03:14:07 GMT";
+    const dap_class = document.getElementById(`dap_class${parent}`);
+    const main_class = document.getElementById(`main_class${parent}`);
+    const lib_class = document.getElementById(`lib_class${parent}`);
 
     console.log("functpe 확인했습니다.");
     scholarship_class.addEventListener("click", () => {
@@ -30,6 +28,12 @@ function functpe(parent) {
             `scholarship_class${parent}_child`
         ).style.display = "block";
         document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
             "none";
         document.getElementById(`deu_3rd_class${parent}_child`).style.display =
             "none";
@@ -80,6 +84,8 @@ function functpe(parent) {
         document.getElementById(
             `dap_scholarship_class${parent}_child`
         ).style.display = "none";
+        document.getElementById(`lib_class${parent}_child`).style.display =
+        "none";
     });
 
     deu_3rd_class.addEventListener("click", () => {
@@ -88,6 +94,12 @@ function functpe(parent) {
         document.getElementById(`deu_3rd_class${parent}_child`).style.display =
             "block";
         document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
             "none";
         document.getElementById(
             `scholarship_class${parent}_child`
@@ -120,6 +132,12 @@ function functpe(parent) {
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
             "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
+            "none";
         document.getElementById(
             `scholarship_class${parent}_child`
         ).style.display = "none";
@@ -150,6 +168,12 @@ function functpe(parent) {
         document.getElementById(`deu_3rd_class${parent}_child`).style.display =
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
             "none";
         document.getElementById(
             `scholarship_class${parent}_child`
@@ -182,6 +206,12 @@ function functpe(parent) {
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
             "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
+            "none";
         document.getElementById(
             `scholarship_class${parent}_child`
         ).style.display = "none";
@@ -213,6 +243,12 @@ function functpe(parent) {
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
             "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
+            "none";
         document.getElementById(
             `scholarship_class${parent}_child`
         ).style.display = "none";
@@ -243,6 +279,12 @@ function functpe(parent) {
         document.getElementById(`deu_3rd_class${parent}_child`).style.display =
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
             "none";
         document.getElementById(
             `scholarship_class${parent}_child`
@@ -276,6 +318,12 @@ function functpe(parent) {
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
             "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
+            "none";
         document.getElementById(
             `scholarship_class${parent}_child`
         ).style.display = "none";
@@ -306,6 +354,12 @@ function functpe(parent) {
         document.getElementById(`deu_3rd_class${parent}_child`).style.display =
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
             "none";
         document.getElementById(
             `scholarship_class${parent}_child`
@@ -338,6 +392,114 @@ function functpe(parent) {
         document.getElementById(`deu_3rd_class${parent}_child`).style.display =
             "none";
         document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(
+            `scholarship_class${parent}_child`
+        ).style.display = "none";
+    });
+    dap_class.addEventListener("click", () => {
+        console.log("비교과프로그램 click");
+        document.cookie = `b${parent}=dap_class${parent}; path=/; expires=Tue, 19 Jan 2023 03:14:07 GMT`;
+        document.getElementById(`dap_class${parent}_child`).style.display =
+        "block";
+        document.getElementById(`dap_scholarship_class${parent}_child`).style.display = 
+            "none";
+        document.getElementById(`dap_dorm_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`dap_haksa_class${parent}_child`).style.display = 
+            "none";
+        document.getElementById(`dap_job_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`dap_edu_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`job_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`lang_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`exchange_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`deu_3rd_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`main_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(
+            `scholarship_class${parent}_child`
+        ).style.display = "none";
+    });
+    main_class.addEventListener("click", () => {
+        console.log("장학공고 click");
+        document.cookie = `b${parent}=main_class${parent}; path=/; expires=Tue, 19 Jan 2023 03:14:07 GMT`;
+        document.getElementById(`main_class${parent}_child`).style.display =
+        "block";
+        document.getElementById(
+            `dap_scholarship_class${parent}_child`
+        ).style.display = "none";
+        document.getElementById(`dap_dorm_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(
+            `dap_haksa_class${parent}_child`
+        ).style.display = "none";
+        document.getElementById(`dap_job_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`dap_edu_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`job_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`lang_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`exchange_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`deu_3rd_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+            document.getElementById(`lib_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(
+            `scholarship_class${parent}_child`
+            ).style.display = "none";
+        });
+    lib_class.addEventListener("click", () => {
+        console.log("도서관 click");
+        document.cookie = `b${parent}=lib_class${parent}; path=/; expires=Tue, 19 Jan 2023 03:14:07 GMT`;
+        document.getElementById(`lib_class${parent}_child`).style.display =
+            "block";
+        document.getElementById(
+            `dap_scholarship_class${parent}_child`
+        ).style.display = "none";
+        document.getElementById(`dap_dorm_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`dap_haksa_class${parent}_child`).style.display = 
+            "none";
+        document.getElementById(`dap_job_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`dap_edu_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`job_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`lang_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`exchange_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`deu_3rd_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`museum_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`dap_class${parent}_child`).style.display =
+            "none";
+        document.getElementById(`main_class${parent}_child`).style.display =
             "none";
         document.getElementById(
             `scholarship_class${parent}_child`

@@ -45,6 +45,10 @@
     $targetDB = "deu_scholarship";
     $scholarship_class = new notice ("장학공지",3, $sql_ID->connect(), $targetDB);
 
+    $targetDB = "deu_lib";
+    $lib_class = new notice ("도서관공지",3, $sql_ID->connect(), $targetDB);
+
+
     function flexible_box($parent, $child){
         global$dap_class,   #php는 전역변수를 사용하기위해 함수의 안에서 다시 불러들여야한다
         $dap_dorm_class,
@@ -58,7 +62,8 @@
         $lang_class,
         $main_class,
         $museum_class,
-        $scholarship_class;
+        $scholarship_class,
+        $lib_class;
         return 
         '<div class="menu-box block">
                 <div id="menu-container'.$parent.'" class="menu-container">
@@ -76,6 +81,13 @@
                         </li>
                         <!-- accordion-toggle -->
                         <ul class="menu-submenu accordion-content">
+                            <li>
+                                <a
+                                    onclick="functpe('.$parent.')"
+                                    id="dap_class'.$parent.'"
+                                    >비교과프로그램</a
+                                >
+                            </li>
                             <li>
                                 <a
                                     onclick="functpe('.$parent.')"
@@ -119,6 +131,13 @@
                         </li>
                         <!-- accordion-toggle -->
                         <ul class="menu-submenu accordion-content">
+                            <li>
+                                <a
+                                    onclick="functpe('.$parent.')"
+                                    id="main_class'.$parent.'"
+                                    >동의대학교</a
+                                >
+                            </li>
                             <li>
                                 <a
                                     onclick="functpe('.$parent.')"
@@ -166,6 +185,13 @@
                                     >박물관</a
                                 >
                             </li>
+                            <li>
+                                <a
+                                    onclick="functpe('.$parent.')"
+                                    id="lib_class'.$parent.'"
+                                    >도서관</a
+                                >
+                            </li>
                         </ul>
                         <!-- menu-submenu accordon-content-->
                     </ul>
@@ -202,11 +228,22 @@
                     '.$dap_dorm_class->print().'
                 </div>
                 <div
-                    id="dap_scholarship_class'.$parent.$child.'"
-                    style="display: none"
-                >
+                    id="dap_scholarship_class'.$parent.$child.'" style="display: none">
                     '.$dap_scholarship_class->print().'
                 </div>
+                <div
+                    id="dap_class'.$parent.$child.'" style="display: none">
+                    '.$dap_class->print().'
+                </div>
+                <div
+                    id="lib_class'.$parent.$child.'" style="display: none">
+                    '.$lib_class->print().'
+                </div>
+                <div
+                    id="main_class'.$parent.$child.'" style="display: none">
+                    '.$main_class->print().'
+                </div>
+
             </div>';
     }
 

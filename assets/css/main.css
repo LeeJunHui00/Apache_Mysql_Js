@@ -856,3 +856,10 @@ section {
     padding-top: 20px;
     margin-right: 40px;
 }
+
+.chat__conversation-panel {
+    background: #e4eaee;
+    border-radius: 12px;
+    height: 55px;
+    display: flex;
+}

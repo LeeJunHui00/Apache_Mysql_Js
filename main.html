@@ -117,6 +117,13 @@
                                     <ul>
                                         <li>
                                             <a
+                                                href="https://www.deu.ac.kr/www/board/3"
+                                                target="_blank"
+                                                >동의대학교 공지</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
                                                 href="https://www.deu.ac.kr/www/board/13"
                                                 target="_blank"
                                                 >외부기관 공고</a
@@ -165,6 +172,13 @@
                                                 target="_blank"
                                                 href="https://www.deu.ac.kr/www/board/29"
                                                 >박물관</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                target="_blank"
+                                                href="https://lib.deu.ac.kr/lib/community/sc.csp?sccode=notice"
+                                                >중앙도서관</a
                                             >
                                         </li>
                                     </ul>
@@ -245,130 +259,170 @@
                     <?php echo flexible_box("6", "_child"); ?>
                 </div>
             </div>
+            <div class="sticky-menu-container">
+                <div class="inner-menu closed">
+                    <div class="outer-button">
+                        <div class="icon-container">
+                            <svg
+                                version="1.1"
+                                id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                x="0px"
+                                y="0px"
+                                viewBox="0 0 92 92"
+                                enable-background="new 0 0 92 92"
+                                xml:space="preserve"
+                                class="close-icon"
+                            >
+                                <path
+                                    id="XMLID_732_"
+                                    d="M70.7,64.3c1.8,1.8,1.8,4.6,0,6.4c-0.9,0.9-2,1.3-3.2,1.3c-1.2,0-2.3-0.4-3.2-1.3L46,52.4L27.7,70.7
+        c-0.9,0.9-2,1.3-3.2,1.3s-2.3-0.4-3.2-1.3c-1.8-1.8-1.8-4.6,0-6.4L39.6,46L21.3,27.7c-1.8-1.8-1.8-4.6,0-6.4c1.8-1.8,4.6-1.8,6.4,0
+        L46,39.6l18.3-18.3c1.8-1.8,4.6-1.8,6.4,0c1.8,1.8,1.8,4.6,0,6.4L52.4,46L70.7,64.3z"
+                                />
+                            </svg>
+                            <svg
+                                version="1.1"
+                                id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                x="0px"
+                                y="0px"
+                                viewBox="0 0 92 92"
+                                enable-background="new 0 0 92 92"
+                                xml:space="preserve"
+                                class="arrow-icon"
+                            >
+                                <path
+                                    id="XMLID_507_"
+                                    d="M49.9,88c-0.2,0-0.4,0-0.6-0.1c-1.8-0.3-3.2-1.7-3.3-3.5l-3.5-34.8L7.6,46.1c-1.8-0.2-3.3-1.6-3.5-3.3
+        c-0.3-1.8,0.7-3.5,2.3-4.3l76-34.1c1.5-0.7,3.3-0.4,4.5,0.8c1.2,1.2,1.5,3,0.8,4.5l-34.1,76C52.9,87.1,51.4,88,49.9,88z M23.3,39.7
+        L46.4,42c1.9,0.2,3.4,1.7,3.6,3.6l2.4,23.1L76,16L23.3,39.7z"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="width: 90px; height: 100px"></div>
+                    <div class="menu-item" style="width: 390px; height: 590px">
+                        <!--<iframe src="test.html" style="width:460px; min-height:400px;" frameborder="1"></iframe>-->
+                        <script>
+                            var name = "";
+                            const ws = new WebSocket(
+                                "ws://113.198.230.37:5500"
+                            );
+                            // 메세지 수신
+
+                            function receiveMessage() {
+                                var test = event.data.split(":");
+                                const div = document.createElement("div");
+                                if (name == test[0]) {
+                                    const dom = `
+              <div class="chat ch2">
+              <div class="icon">${test[0]}</i></div>
+              <div class="textbox">${test[1]}</div>
+          </div>
+            `;
+                                    div.innerHTML = dom;
+                                    const chatLog =
+                                        document.getElementById("chat-log");
+                                    chatLog.appendChild(div);
+                                    chatLog.scrollTop = chatLog.scrollHeight;
+                                } else {
+                                    const dom = `
+              <div class="chat ch1">
+                <div class="icon">${test[0]}</i></div>
+              <div class="textbox">${test[1]}</div>
+          </div>
+            `;
+                                    div.innerHTML = dom;
+                                    const chatLog =
+                                        document.getElementById("chat-log");
+                                    chatLog.appendChild(div);
+                                    chatLog.scrollTop = chatLog.scrollHeight;
+                                }
+                            }
+                            ws.onmessage = receiveMessage;
+                            // 메세지 전송
+                            function sendMessage() {
+                                const nickname =
+                                    document.getElementById("nickname").value;
+                                name = nickname;
+                                const message =
+                                    document.getElementById("message").value;
+                                const fullMessage = `${nickname}: ${message}`;
+                                document.getElementById("message").value = "";
+                                ws.send(fullMessage);
+                            }
+                            // 메세지 전송
+                            function sendMe(e) {
+                                if (e.keyCode == 13) {
+                                    const nickname =
+                                        document.getElementById(
+                                            "nickname"
+                                        ).value;
+                                    name = nickname;
+                                    const message =
+                                        document.getElementById(
+                                            "message"
+                                        ).value;
+                                    const fullMessage = `${nickname}: ${message}`;
+                                    document.getElementById("message").value =
+                                        "";
+                                    ws.send(fullMessage);
+                                }
+                            }
+                        </script>
+                        <div
+                            id="chat-log"
+                            style="overflow: auto; width: 390px; height: 415px"
+                        ></div>
+                        <div
+                            class="chat__conversation-panel"
+                            style="
+                                margin-left: 10px;
+                                margin-bottom: 0px;
+                                margin-right: 0px;
+                                border-bottom-width: 10px;
+                                padding-bottom: 10px;
+                            "
+                        >
+                            <input
+                                type="text"
+                                id="nickname"
+                                placeholder="닉네임"
+                                style="
+                                    width: 20%;
+                                    border-radius: 10px;
+                                    border: 1px solid;
+                                "
+                            />
+                            <input
+                                type="text"
+                                id="message"
+                                placeholder="메세지"
+                                style="width: 100%; height: 100%"
+                                onkeypress="sendMe(event)"
+                            />
+                            <button
+                                onclick="sendMessage()"
+                                style="width: 20%; height: 100%"
+                                id="sender"
+                                class="btn btn-primary"
+                            >
+                                전송
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- 채팅 js -->
-        <link rel="stylesheet" href="deco.css">
-<div class="sticky-menu-container">
-  <div class="inner-menu closed">
-    <div class="outer-button">
-      <div class="icon-container">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve" class="close-icon">
-  <path id="XMLID_732_" d="M70.7,64.3c1.8,1.8,1.8,4.6,0,6.4c-0.9,0.9-2,1.3-3.2,1.3c-1.2,0-2.3-0.4-3.2-1.3L46,52.4L27.7,70.7
-    c-0.9,0.9-2,1.3-3.2,1.3s-2.3-0.4-3.2-1.3c-1.8-1.8-1.8-4.6,0-6.4L39.6,46L21.3,27.7c-1.8-1.8-1.8-4.6,0-6.4c1.8-1.8,4.6-1.8,6.4,0
-    L46,39.6l18.3-18.3c1.8-1.8,4.6-1.8,6.4,0c1.8,1.8,1.8,4.6,0,6.4L52.4,46L70.7,64.3z"/>
-  </svg>
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve" class="arrow-icon">
-  <path id="XMLID_507_" d="M49.9,88c-0.2,0-0.4,0-0.6-0.1c-1.8-0.3-3.2-1.7-3.3-3.5l-3.5-34.8L7.6,46.1c-1.8-0.2-3.3-1.6-3.5-3.3
-    c-0.3-1.8,0.7-3.5,2.3-4.3l76-34.1c1.5-0.7,3.3-0.4,4.5,0.8c1.2,1.2,1.5,3,0.8,4.5l-34.1,76C52.9,87.1,51.4,88,49.9,88z M23.3,39.7
-    L46.4,42c1.9,0.2,3.4,1.7,3.6,3.6l2.4,23.1L76,16L23.3,39.7z"/>
-  </svg>
-    </div>
-    </div>
-      <div style="width:90px; height:100px;"></div>
-      <div class="menu-item"style="width:390px; height:590px;">
-        <!--<iframe src="test.html" style="width:460px; min-height:400px;" frameborder="1"></iframe>-->
-        <!DOCTYPE html>
-<link rel="stylesheet" href="deco.css">
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Websocket Chatting</title>
+        <link rel="stylesheet" href="assets/css/deco.css" />
 
-    <script>
-      var name = ''
-      const ws = new WebSocket("ws://113.198.230.37:5500")
-      // 메세지 수신
+        <script src="assets/js/deco.js"></script>
 
-      function receiveMessage() {
-        var test = event.data.split(':')
-        const div = document.createElement("div");
-        if(name == test[0])
-        {
-          const dom = `
-          <div class="chat ch2">
-          <div class="icon">${test[0]}</i></div>
-          <div class="textbox">${test[1]}</div>
-      </div>
-        `;
-        div.innerHTML = dom;
-        const chatLog = document.getElementById("chat-log")
-        chatLog.appendChild(div)
-        chatLog.scrollTop = chatLog.scrollHeight;
-        }
-        else{
-          const dom = `
-          <div class="chat ch1">
-            <div class="icon">${test[0]}</i></div>
-          <div class="textbox">${test[1]}</div>
-      </div>
-        `;
-        div.innerHTML = dom;
-        const chatLog = document.getElementById("chat-log")
-        chatLog.appendChild(div)
-        chatLog.scrollTop = chatLog.scrollHeight;
-        }
-      }
-      ws.onmessage = receiveMessage
-      // 메세지 전송
-      function sendMessage() {
-        const nickname = document.getElementById("nickname").value
-        name = nickname
-        const message = document.getElementById("message").value
-        const fullMessage = `${nickname}: ${message}`
-        document.getElementById("message").value = ''
-        ws.send(fullMessage)
-      }
-      // 메세지 전송
-      function sendMe(e) {
-        if(e.keyCode == 13)
-        {
-            const nickname = document.getElementById("nickname").value
-            name = nickname
-            const message = document.getElementById("message").value
-            const fullMessage = `${nickname}: ${message}`
-            document.getElementById("message").value = ''
-            ws.send(fullMessage)
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <div id="chat-log"style="overflow:auto; width:390px; height:415px;"></div>
-  </body>
-</html>
-<div>
-  <input
-    type="text"
-    id="nickname"
-    placeholder="닉네임"
-    style="width: 50px"
-  />
-  <input
-    type="text"
-    id="message"
-    placeholder="메세지"
-    style="width: 340px; height: 30px"
-    onkeypress="sendMe(event)"
-  />
-  <button onclick="sendMessage()"style="width: 40px; height: 30px" id="sender">전송</button>
-</div>
-</div>
-</div>
-<script src="deco.js"></script>
-
-        <!--<script>
-
-            chat = document.getElementById("chat-box");
-            chat.addEventListener("keydown", (event) => {
-                console.log(event.keyCode);
-                if (event.keyCode === 13) {
-                    send();
-                    return;
-                }
-            });
-        </script>-->
         <script>
             $(function () {
                 function slideMenu(container_id) {
